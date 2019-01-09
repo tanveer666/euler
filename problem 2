@@ -1,0 +1,58 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+
+
+int fib(int n) //a function for calculating n'th fibonacci term
+{
+    int current; 
+    if(n == 1) //if its the first term return 1
+    {
+        return 1;
+    }
+    else if(n <= 0)
+    {
+        return 0; //if its the 0th return 0;
+    }
+    else
+    {
+        current = fib(n-1)+fib(n-2); // nth fib term is the sum of previos 2 terms
+        return current; //return n'th term
+    }
+    
+}
+
+
+
+int main ()
+{
+    long long fib_sum = 0;
+    int ctr = 0;
+    
+    
+    while(1)
+    {
+        long long fib_val = fib(ctr); //counter for fibonacci sequence,it specifies the n'th term to call. starts at 0. 
+        if(fib_val > 4000000) //if the n'th term is over 4 million stop.
+        {
+            break;
+        }
+        else if(fib_val %2 == 0) //otherwise if the term is even, add it to the sum.
+        {
+            fib_sum += fib_val;
+        }
+        ctr++; // counts up, meaning it will now tell the gib funtion to get the value for n+1th term.
+    }
+    
+    printf("%lld",fib_sum);
+    
+    return 0;
+}
+
